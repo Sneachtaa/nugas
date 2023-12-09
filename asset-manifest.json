@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kucingnyauw/tugas-komnas/static/css/main.d280ce73.css",
-    "main.js": "/kucingnyauw/tugas-komnas/static/js/main.e2ee2645.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/kucingnyauw/tugas-komnas/static/js/787.c4e7f8f9.chunk.js",
-    "index.html": "/kucingnyauw/tugas-komnas/index.html",
-    "main.d280ce73.css.map": "/kucingnyauw/tugas-komnas/static/css/main.d280ce73.css.map",
-    "main.e2ee2645.js.map": "/kucingnyauw/tugas-komnas/static/js/main.e2ee2645.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/kucingnyauw/tugas-komnas/static/js/787.c4e7f8f9.chunk.js.map"
+    "main.css": "/Sneachtaa/nugas/static/css/main.d280ce73.css",
+    "main.js": "/Sneachtaa/nugas/static/js/main.5be6b920.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/Sneachtaa/nugas/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/Sneachtaa/nugas/index.html",
+    "main.d280ce73.css.map": "/Sneachtaa/nugas/static/css/main.d280ce73.css.map",
+    "main.5be6b920.js.map": "/Sneachtaa/nugas/static/js/main.5be6b920.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/Sneachtaa/nugas/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d280ce73.css",
-    "static/js/main.e2ee2645.js"
+    "static/js/main.5be6b920.js"
   ]
 }
