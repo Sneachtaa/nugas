@@ -35,7 +35,7 @@ import {FiLogOut} from 'react-icons/fi'
 import { HiBars3BottomLeft } from "react-icons/hi";
 import Swal from "sweetalert2";
 
-const Links = ["Dashboard", "Projects", "About me"];
+const Links = ["Github", "Projects", "About me"];
 
 const NavLink = (props) => {
   const { children } = props;
@@ -92,9 +92,8 @@ function Navbar() {
   
       if (response.data.success) {
         Swal.fire("Success", "Login successful", "success");
-        // Simpan status login ke localStorage saat login berhasil
         localStorage.setItem("isLoggedIn", "true");
-        login(); // Ubah status login menjadi true saat login berhasil
+        login(); 
       } else {
         Swal.fire("Error", "Invalid username or password", "error");
       }
@@ -115,14 +114,12 @@ function Navbar() {
   return (
     <>
       <Box
-        position={"sticky"}
+       
         bg={useColorModeValue("white", "white")}
         px={0}
-        w={"full"}
-        h={20}
-        className="navbar border w-full"
+        className="navbar"
         top={0}
-        left={0}
+    
         right={0}
       >
         <Flex
@@ -132,7 +129,7 @@ function Navbar() {
           width={"full"}
           px={{
             base: 4,
-            sm: 10,
+            sm: 5,
           }}
           align={"center"}
         >
@@ -151,18 +148,26 @@ function Navbar() {
             bg="transparent"
           />
           <HStack w={"w-full"} justifyContent={'center'} className=" h-full flex" spacing={8} alignItems={"center"}>
-            <Box fontWeight={"bold"} fontFamily={"sans-serif"} className="ss ">
-              NUGAS KUY
-            </Box>
+          
             <HStack
               as={"nav"}
               spacing={6}
               display={{ base: "none", md: "flex" }}
               alignItems={"center"}
             >
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+             
+             {Links.map((link, index) => (
+        <NavLink key={link}>
+          <h4 className="text-sm">
+            {index === 0 && (
+              <a href={`https://github.com/Sneachtaa`} target="_blank" rel="noopener noreferrer">
+              Github
+              </a>
+            )}
+            {index !== 0 && link}
+          </h4>
+        </NavLink>
+      ))}
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
@@ -189,10 +194,10 @@ function Navbar() {
               <Button
                 colorScheme="white"
                 color={"white.700"}
-                className="bg-green-400 w-16 h-auto text-white"
+                className=" bg-gray-100 border w-20 h-12 "
                 onClick={handleLoginClick}
               >
-                Login
+                <h3 className=" font-bold text-neutral-700 text-sm">Masuk</h3>
               </Button>
             )}
           </Flex>

@@ -28,10 +28,14 @@ import withReactContent from "sweetalert2-react-content";
 import { AiOutlinePlus, AiOutlineFilePdf } from "react-icons/ai";
 import { useAuth } from "../auth/auth";
 import Navbar from "../header/header";
-import LargeWithNewsletter from "../footer/footer";
+
 import Hero from "../hero/hero";
 import Widget from "../widget/widget";
 import axios from "axios";
+import Swiper from "../banner/banner";
+import Swipers from "../banner/banner";
+import DrawerExample from "../sidebar/sidebar";
+import Footer from "../footer/footer";
 
 export default function Home() {
   const [cardStates, setCardStates] = useState(Array(15).fill(false))
@@ -48,7 +52,7 @@ export default function Home() {
 
   const link = [
     "https://docs.google.com/document/d/1cIC1J7DlbGch_r89Nx16wuIL-DBxEXP8/edit?usp=drive_link&ouid=107526812749782252832&rtpof=true&sd=true",
-    "https://docs.google.com/document/d/13iQek4d0a6ty1imxViHGMozkuohhsRMS/edit?usp=drive_link&ouid=107526812749782252832&rtpof=true&sd=true",
+    "https://docs.google.com/document/d/1KQa84ub4sFbM1D5YZxGeKYc0eREdWr2W/edit?rtpof=true",
     "https://docs.google.com/document/d/1RDHCd_flT_mCxAwRWp37ZcDKpFXyJ0-H/edit?usp=drive_link&ouid=107526812749782252832&rtpof=true&sd=true",
     "https://docs.google.com/document/d/1m-vnkWnHqJFqSmT6XNIMQszRHTdc3S9A/edit?usp=drive_link&ouid=107526812749782252832&rtpof=true&sd=true",
     "https://docs.google.com/document/d/1m-vnkWnHqJFqSmT6XNIMQszRHTdc3S9A/edit?usp=drive_link&ouid=107526812749782252832&rtpof=true&sd=true",
@@ -236,108 +240,112 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <div className="home relative   max-h-screen w-full  h-full bg-white mx-0 my-0 ">
-        <div className="w-full h-full">
-          <Navbar />
-          <main className="h-full w-full">
-          <div className="component overflow-hidden block relative h-auto">
+     <main className="home bg-gray-100 h-screen max-h-screen">
+      <Navbar/>
+      <div className="banner  w-full h-64  p-4 mt-20">
+        <Swipers/>
+      </div>
+      <div className="box w-full h-full mt-6">
+        
+      <Box w={"full"} h={"full"} className=" flex flex-col px-4">
+      <header className=" px-3 bg-white py-5 my-4 w-full text-justify h-auto flex flex-col">
+      <h1 className=" font-bold text-sm mb-2 uppercase">Daftar Tugas Komputer Masyarakat</h1>
+      <p className="text-sm"> Tugas ini melibatkan pengiriman materi tugas dalam
+    format PDF.</p>
+      </header>
+          
 
-              <Hero />
-              <Box w={"full"} h={"auto"} px={5} mt={4} py={5}>
-                <div className="w-full">
-                  <SimpleGrid
-                    spacing={4}
-                    templateColumns="repeat(auto-fill, minmax(200px, 1fr)"
+        <div className="w-full flex flex-wrap flex-row justify-between items-center h-full">
+          {pertemuan.map((title, index) => (
+            <React.Fragment key={index}>
+              <div className="flex-col flex">
+              <Card 
+                onClick={() => handleCardClick(index)}
+                className={`card mb-3 mt-3 w-72  h-36 mr-5 ${cardStates[index] ? 'clicked' : ''}`}
+              >
+                <CardHeader
+                  w={"full"}
+                  h={"auto"}
+                  display={"flex"}
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
+                >
+                  <Heading className="txt uppercase" size="sm">
+                    {title}
+                  </Heading>
+                  <Box
+                    display={"flex"}
+                    bg={
+                      pertemuanStatus[title] === "Finished"
+                        ? "green.300"
+                        : "green.300"
+                    }
+                    className="rounded"
+                    w={"16"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
                   >
-                    {pertemuan.map((title, index) => (
-                      <React.Fragment key={index}>
-                        <Card
-                          onClick={() => handleCardClick(index)}
-                          className="card mb-3"
-                        >
-                          <CardHeader
-                            w={"full"}
-                            h={"auto"}
-                            display={"flex"}
-                            justifyContent={"space-between"}
-                            alignItems={"center"}
-                          >
-                            <Heading className="txt" size="md">
-                              {title}
-                            </Heading>
-                            <Box
-                              display={"flex"}
-                              bg={
-                                pertemuanStatus[title] === "Finished"
-                                  ? "green.300"
-                                  : "green.300"
-                              }
-                              className="rounded"
-                              w={"16"}
-                              alignItems={"center"}
-                              justifyContent={"center"}
-                            >
-                              <Text fontSize={"sm"} color={"whiteAlpha.800"}>
-                                {pertemuanStatus[title] === "Finished"
-                                  ? "Finished"
-                                  : "Finished"}
-                              </Text>
-                            </Box>
-                          </CardHeader>
-                          <CardBody>
-                            <Text>
-                              Tugas ini melibatkan pengiriman materi tugas dalam
-                              format PDF.
-                            </Text>
-                          </CardBody>
-                          <CardFooter>
-                            <Button onClick={() => onToggle()}>Lihat</Button>
-                          </CardFooter>
-                        </Card>
-                        {cardStates[index] && (
-                          <>
-                            <Box
-                              display="flex"
-                              justifyContent="space-between"
-                              alignItems="center"
-                              w="full"
-                              h={{ md: "full" }}
-                              color="white"
-                              mt="4"
-                              bg="teal.500"
-                              rounded="md"
-                              shadow="md"
-                              className="px-4 py-6 mb-3 w-full"
-                            >
-                              <span>Download :</span>
-                              <Box display="flex">
-                                <div className="pdf w-8 h-8  mr-4 hover:rounded-md hover:bg-teal-700">
-                                  <a className="flex items-center justify-center w-full h-full"
-                                    href={link[index]} 
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <AiOutlineFilePdf />
-                                  </a>
-                                  <div className="tooltip">Pdf</div>
-                                </div>
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </SimpleGrid>
-                </div>
-              </Box>
-              <Box className="addTask bottom-24 right-5 fixed w-14 h-14 bg-white border z-60 rounded-full">
+                    <Text fontSize={"sm"} color={"whiteAlpha.800"}>
+                      {pertemuanStatus[title] === "Finished"
+                        ? "Finished"
+                        : "Finished"}
+                    </Text>
+                  </Box>
+                </CardHeader>
+              
+                <CardFooter className="">
+                  <Button className="w-32 bg-gray-100 flex justify-start items-start " onClick={() => onToggle()}>
+                    <h3 className="text-sm font-medium">Lihat</h3>
+                  </Button>
+                </CardFooter>
+              </Card>
+              {cardStates[index] && (
+               
+               <Box
+                 display="flex"
+                 justifyContent="space-between"
+                 alignItems="center"
+          
+                 color="white"
+                 bg="teal.500"
+                 rounded="md"
+                 shadow="md"
+                 className="px-4 py-6 w-72 h-13"
+               >
+                 <span>Download :</span>
+                 <Box display="flex">
+                   <div className="pdf w-8 h-8  mr-4 hover:rounded-md hover:bg-teal-700">
+                     <a
+                       className="flex items-center justify-center w-full h-full"
+                       href={link[index]}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                     >
+                       <AiOutlineFilePdf />
+                     </a>
+                     <div className="tooltip">Pdf</div>
+                   </div>
+                 </Box>
+               </Box>
+            
+           )}
+              </div>
+            
+            
+            </React.Fragment>
+          ))}
+        </div>
+    
+      </Box>
+    </div>
+    <Box className="addTask bottom-24 right-5 fixed w-14 h-14 bg-white border z-60 rounded-full">
                 <div className="flex items-center justify-center h-full">
-                  <button onClick={!isLoggedIn ? showLoginAlert : openModal}>
+                  <button onClick={!isLoggedIn ? openModal : openModal}>
                     <AiOutlinePlus />
                   </button>
                 </div>
               </Box>
-              <Box h={"full "}>
+              <Box className="h-full">
                 <Modal isOpen={ModalOpen} onClose={closeModal}>
                   <ModalOverlay />
                   <ModalContent
@@ -373,7 +381,7 @@ export default function Home() {
                         </ModalHeader>
                         <FormControl isRequired>
                           <FormLabel>Pilih Pertemuan</FormLabel>
-                          <Select disabled
+                          <Select
                             placeholder="Pilih Pertemuan"
                             onChange={(e) => {
                               const index = pertemuan.indexOf(e.target.value);
@@ -390,7 +398,7 @@ export default function Home() {
                                 className="mt-4 px-3 py-3"
                                 key={index}
                                 value={title}
-                                disabled
+                                
                               >
                                 {title}
                               </option>
@@ -400,7 +408,7 @@ export default function Home() {
                         <FormControl mt={4} mb={4} isRequired>
                           <Box className="">
                             <FormLabel>Pilih File</FormLabel>
-                            <Input disabled
+                            <Input 
                               px={1}
                               type="file"
                               py={1}
@@ -419,7 +427,7 @@ export default function Home() {
                             onClick={handleUpload}
                             disabled={!selectedFile || isLoading}
                           >
-                            {isLoading ? "Mengunggah..." : "Unggah"}
+                            {isLoading ? "Mengunggah..." : "unggah" }
                           </Button>
                         </ModalFooter>
                       </ModalBody>
@@ -427,12 +435,9 @@ export default function Home() {
                   </ModalContent>
                 </Modal>
               </Box>
-            </div>
-          </main>
-          <Widget />
-          <LargeWithNewsletter />
-        </div>
-      </div>
+              <Footer/>
+     <DrawerExample/>
+     </main>
     </React.Fragment>
   );
 }

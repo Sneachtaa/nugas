@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -11,7 +12,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-export default function Banner() {
+export default function Swipers() {
   return (
     <>
       <Swiper 
@@ -24,13 +25,25 @@ export default function Banner() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper border"
+        className="mySwiper w-72 border rounded-lg"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide className='flex'>
+          <div className="w-full bg-red-500 h-full">
+            
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='flex'>
+          <div className="w-full bg-red-600 h-full">
+            
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='flex'>
+          <div className="w-full bg-red-500 h-full">
+            
+          </div>
+        </SwiperSlide>
       </Swiper>
     </>
   );

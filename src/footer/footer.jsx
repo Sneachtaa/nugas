@@ -11,7 +11,7 @@ import {
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube , FaLinkedin} from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
 
 const Logo = (props) => {
@@ -54,26 +54,17 @@ const ListHeader = ({ children }) => {
   );
 };
 
-export default function LargeWithNewsletter() {
+export default function Footer() {
   return (
-    <Box w={'full'} position={''}   className='footer mt-10  bottom-0 ' h={{
-      base : 'auto' ,
-      sm : 'full'
-    }}
-    
-    bg={useColorModeValue('white', 'white')}
+    <Box className='footer mt-5 '
+    bg={useColorModeValue('gray.50')}
     color={useColorModeValue('gray.700', 'gray.200')}
-    borderTop="1px solid #ccc" // Ganti dengan warna dan ketebalan yang Anda inginkan
+   
   >
-      <Container  as={Stack}  maxW={'full'} w={'full'}  py={{
-        md : 6 ,
-        base : 2 , 
-        sm : 6
-      }} className=''>
+      <Container as={Stack} maxW={'6xl'} py={10} className='border-t border-gray-300'>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
           spacing={8}
-          px={2}
         >
           <Stack spacing={6}>
             <Box>
@@ -89,9 +80,6 @@ export default function LargeWithNewsletter() {
               </SocialButton>
               <SocialButton label={'Instagram'} href={'#'}>
                 <FaInstagram />
-              </SocialButton>
-              <SocialButton label={'LinkedIn'} href={'#'}>
-                <FaLinkedin/>
               </SocialButton>
             </Stack>
           </Stack>
@@ -150,14 +138,7 @@ export default function LargeWithNewsletter() {
                 icon={<BiMailSend />}
               />
             </Stack>
-       </Stack>
-       <Stack >
-        <Container h={'14'}>
-
-        </Container>
-       </Stack>
-         
-      
+          </Stack>
         </SimpleGrid>
       </Container>
     </Box>

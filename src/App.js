@@ -9,15 +9,17 @@ import Load from './loading/load';
 import { useState, useEffect } from 'react';
 import FileUploadDownload from './file/validation';
 import Portal from './portal/portal';
+import DrawerExample from './sidebar/sidebar';
+
+
 
 export default function App() {
   const [loading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Generate a random timeout value between 3 to 5 seconds (in milliseconds)
     const randomTimeout = Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
 
-    // Set a timeout to hide the loading after the random interval
+
     const timeoutId = setTimeout(() => {
       setIsLoading(false);
     }, randomTimeout);
@@ -29,35 +31,29 @@ export default function App() {
   }, []);
 
   return (
-    isMobile ? (
-      <ChakraProvider>
-        <Box className='block overflow-y-scroll relative w-full h-full m-auto' w={{
-          md: 'full',
-          sm: 'full'
-        }}>
-          {loading ? (
-            <Load />
-          ) : (
-            <AuthProvider>
-              <section>
-             <Home/>
-              </section>
-            </AuthProvider>
-          )}
-        </Box>
-      </ChakraProvider>
-    ) : (
-      <Blank />
-    )
+    <ChakraProvider>
+  {isMobile ? (
+    <div>
+     <span>hehe</span>
+    </div>
+  ) : (
+    <div>
+      {loading ? (
+        <Load />
+      ) : (
+        <AuthProvider>
+          <section className='w-full h-full'>
+            <div className='flex flex-row'>
+              <DrawerExample />
+              <Home />
+            </div>
+          </section>
+        </AuthProvider>
+      )}
+    </div>
+  )}
+</ChakraProvider>
 
-    // <ChakraProvider>
-    //  <AuthProvider>
-    //  <Home/>
-    //  </AuthProvider>
-    // </ChakraProvider>
-
-    
-
-  );
+  )
 }
 
