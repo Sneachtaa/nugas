@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nugas/static/css/main.d280ce73.css",
-    "main.js": "/nugas/static/js/main.c8e03615.js",
+    "main.css": "/nugas/static/css/main.b6580417.css",
+    "main.js": "/nugas/static/js/main.8e9a1d3b.js",
     "static/js/787.c4e7f8f9.chunk.js": "/nugas/static/js/787.c4e7f8f9.chunk.js",
     "index.html": "/nugas/index.html",
-    "main.d280ce73.css.map": "/nugas/static/css/main.d280ce73.css.map",
-    "main.c8e03615.js.map": "/nugas/static/js/main.c8e03615.js.map",
+    "main.b6580417.css.map": "/nugas/static/css/main.b6580417.css.map",
+    "main.8e9a1d3b.js.map": "/nugas/static/js/main.8e9a1d3b.js.map",
     "787.c4e7f8f9.chunk.js.map": "/nugas/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d280ce73.css",
-    "static/js/main.c8e03615.js"
+    "static/css/main.b6580417.css",
+    "static/js/main.8e9a1d3b.js"
   ]
 }
