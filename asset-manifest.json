@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kucingnyauw/tugas-komnas/static/css/main.d280ce73.css",
+    "main.js": "/kucingnyauw/tugas-komnas/static/js/main.e2ee2645.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/kucingnyauw/tugas-komnas/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/kucingnyauw/tugas-komnas/index.html",
+    "main.d280ce73.css.map": "/kucingnyauw/tugas-komnas/static/css/main.d280ce73.css.map",
+    "main.e2ee2645.js.map": "/kucingnyauw/tugas-komnas/static/js/main.e2ee2645.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/kucingnyauw/tugas-komnas/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d280ce73.css",
+    "static/js/main.e2ee2645.js"
+  ]
+}
