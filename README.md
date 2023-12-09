@@ -1,2 +1,0 @@
-Buat nugas.
-udah
