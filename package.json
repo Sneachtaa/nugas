@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://github.com/Sneachtaa/nugas",
+  "homepage": "https://Sneachtaa.github.io/nugas",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
