@@ -31,7 +31,7 @@ import {useAuth} from '../auth/auth'
 import axios from 'axios';
 import {FiLogOut} from 'react-icons/fi'
 
-// Import yang sesuai dengan react-icons
+
 import { HiBars3BottomLeft } from "react-icons/hi";
 import Swal from "sweetalert2";
 
@@ -160,7 +160,7 @@ function Navbar() {
         <NavLink key={link}>
           <h4 className="text-sm">
             {index === 0 && (
-              <a href={`https://github.com/Sneachtaa`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://github.com/Sneachtaa`} target="_blank">
               Github
               </a>
             )}
